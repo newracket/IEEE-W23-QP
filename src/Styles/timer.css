@@ -1,0 +1,46 @@
+.timer {
+  display: inline-block;
+  padding: 60px 20px 80px 20px;
+  border-radius: 0.5rem;
+
+  background-color: skyblue;
+
+  font-family: "Open Sans", sans-serif;
+}
+
+.textContainer {
+  padding: 20px;
+  margin-bottom: 40px;
+  border-radius: 0.5rem;
+
+  font-size: 96px;
+  background-color: white;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+
+  gap: 40px;
+}
+
+.buttonsContainer > button {
+  font-size: 2em;
+
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+
+  width: 100%;
+}
+
+.buttonsContainer > button:hover {
+  cursor: pointer;
+}
+
+.startPause {
+  background-color: rgb(40, 190, 40);
+}
+
+.reset {
+  background-color: rgb(255, 80, 80);
+}
