@@ -1,0 +1,50 @@
+.homeContainer {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.title {
+  margin: 20px;
+
+  font-size: 6rem;
+}
+
+.selectionContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+
+  margin-top: 40px;
+
+  font-size: 3rem;
+}
+
+.selection {
+  padding: 5px 30px;
+  border-radius: 0.5rem;
+
+  font-size: inherit;
+  font-family: inherit;
+
+  text-align: center;
+}
+
+.play {
+  padding: 5px 30px;
+
+  font-size: inherit;
+  font-family: inherit;
+
+  border-radius: 0.5rem;
+  border: 1px solid gray;
+  background-color: #7cddff;
+}

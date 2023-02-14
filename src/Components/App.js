@@ -1,19 +1,23 @@
-import Timer from "./Timer";
 import "../Styles/app.css";
-import Target from "./Target";
+import Home from "./Home";
 
 function App() {
-  return (<div className="container">
-      <div className="timerContainer">
-        <Timer/>
-      </div>
+  return (
+    <>
+      {/*// <div className="container">*/}
+      {/*<div className="timerContainer">*/}
+      {/*  <Timer/>*/}
+      {/*</div>*/}
 
-      <div className="targetsContainer">
-        <Target/>
-        <Target/>
-        <Target/>
-      </div>
-    </div>);
+      {/*<div className="targetsContainer">*/}
+      {/*  <Target/>*/}
+      {/*  <Target/>*/}
+      {/*  <Target/>*/}
+      {/*</div>*/}
+      <Home />
+    </>
+  );
+  /*</div>);*/
 }
 
 export default App;
