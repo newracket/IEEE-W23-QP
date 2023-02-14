@@ -18,21 +18,21 @@ function Timer() {
       clearInterval(interval);
     }
 
+    function decrementTimer() {
+      if (minutes === 0 && seconds === 1) {
+        return setTimerStarted(false);
+      }
+
+      if (seconds === 0) {
+        setMinutes(minutes - 1);
+        setSeconds(59);
+      } else {
+        setSeconds(seconds - 1);
+      }
+    }
+
     return () => clearInterval(interval);
-  }, [timerStarted, decrementTimer]);
-
-  function decrementTimer() {
-    if (minutes === 0 && seconds === 1) {
-      return setTimerStarted(false);
-    }
-
-    if (seconds === 0) {
-      setMinutes(minutes - 1);
-      setSeconds(59);
-    } else {
-      setSeconds(seconds - 1);
-    }
-  }
+  }, [minutes, seconds, timerStarted]);
 
   function startPauseTimer() {
     setTimerStarted(!timerStarted);
