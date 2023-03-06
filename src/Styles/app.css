@@ -7,9 +7,3 @@
   justify-content: center;
   gap: 15vw;
 }
-
-.timerContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}

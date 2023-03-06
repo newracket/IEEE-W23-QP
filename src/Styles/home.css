@@ -17,34 +17,40 @@
   font-size: 6rem;
 }
 
-.selectionContainer {
+.selectionsContainer {
+  margin-top: 40px;
+}
+
+.selection {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   gap: 30px;
 
-  margin-top: 40px;
 
   font-size: 3rem;
 }
 
-.selection {
-  padding: 5px 30px;
-  border-radius: 0.5rem;
+.numberInput {
+  width: 100px;
 
-  font-size: inherit;
-  font-family: inherit;
-
+  font-size: 2rem;
   text-align: center;
 }
 
 .play {
+  margin-top: 40px;
   padding: 5px 30px;
 
-  font-size: inherit;
+  font-size: 2.5rem;
   font-family: inherit;
 
   border-radius: 0.5rem;
   border: 1px solid gray;
   background-color: #7cddff;
+}
+
+.play:hover {
+  cursor: pointer;
 }

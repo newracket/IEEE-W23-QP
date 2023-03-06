@@ -1,0 +1,26 @@
+.gameContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+
+.timerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  flex-basis: 50%;
+  flex-grow: 1;
+}
+
+.targetsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  flex-grow: 2;
+}
