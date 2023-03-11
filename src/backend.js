@@ -2,6 +2,9 @@ const { WebSocketServer } = require("ws");
 const http = require("http");
 const fs = require("fs");
 
+const GAMEMODE_TXT_PATH = "C:\\Users\\airha\\IEEE-W23-QP\\src\\gamemode.txt";
+const TARGETS_TXT_PATH = "targets.txt";
+
 const server = http.createServer();
 const ws = new WebSocketServer({ server });
 const port = 8000;
@@ -31,11 +34,11 @@ function handleMessage(args) {
     const dataToWrite = `${args.start ? args.targets : 0}`;
 
     console.log(dataToWrite);
-    fs.writeFileSync("gamemode.txt", dataToWrite);
+    fs.writeFileSync(GAMEMODE_TXT_PATH, dataToWrite);
   }
 }
 
-fs.watchFile("targets.txt", sendEnabledTargets);
+fs.watchFile(TARGETS_TXT_PATH, sendEnabledTargets);
 
 function sendEnabledTargets() {
   const targetsEnabled = getEnabledTargets();
