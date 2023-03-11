@@ -3,24 +3,34 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 10vw;
+}
+
+.back {
+  font-size: 1.5rem;
+  background-color: rgb(240, 240, 240);
 }
 
 .timerContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 40px;
 
-  flex-basis: 50%;
-  flex-grow: 1;
+  text-align: center;
+}
+
+.scoreText {
+  font-size: 5rem;
 }
 
 .targetsContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 30px;
+}
 
-  flex-grow: 2;
+.disabled {
+  opacity: 50%;
 }

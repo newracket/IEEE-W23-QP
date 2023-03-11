@@ -15,11 +15,11 @@ function Home() {
   };
 
   const handleTimeInput = (e) => {
-    setTime(e.target.value);
+    setTime(parseInt(e.target.value));
   };
 
   const handleTargetsInput = (e) => {
-    setTargets(e.target.value);
+    setTargets(parseInt(e.target.value));
   };
 
   const handlePlay = () => {
@@ -70,7 +70,7 @@ function Home() {
             className="numberInput"
             id="targets"
             min={0}
-            max={5}
+            max={6}
             defaultValue={3}
             onChange={handleTargetsInput}
           />

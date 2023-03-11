@@ -1,45 +1,70 @@
 import "../Styles/timer.css";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
-function Timer() {
-  const defaultMinutes = 10;
-  const defaultSeconds = 0;
+function Timer(props) {
+  let totalSeconds = parseInt(props.seconds);
+  let changeFunction = decrementTimer;
+  if (!props.timedChecked) {
+    changeFunction = incrementTimer;
+    totalSeconds = 0;
+  }
+
+  const defaultMinutes = Math.floor(totalSeconds / 60);
+  const defaultSeconds = totalSeconds % 60;
 
   const [timerStarted, setTimerStarted] = useState(false);
   const [minutes, setMinutes] = useState(defaultMinutes);
   const [seconds, setSeconds] = useState(defaultSeconds);
 
+  const setTimerState = useCallback(
+    (timerState) => {
+      props.setGameState(timerState);
+      setTimerStarted(timerState);
+    },
+    [props]
+  );
+
   useEffect(() => {
     let interval = null;
 
     if (timerStarted) {
-      interval = setInterval(decrementTimer, 1000);
+      interval = setInterval(changeFunction, 1000);
     } else {
       clearInterval(interval);
     }
 
-    function decrementTimer() {
-      if (minutes === 0 && seconds === 1) {
-        return setTimerStarted(false);
-      }
+    return () => clearInterval(interval);
+  }, [changeFunction, minutes, seconds, setTimerState, timerStarted]);
 
-      if (seconds === 0) {
-        setMinutes(minutes - 1);
-        setSeconds(59);
-      } else {
-        setSeconds(seconds - 1);
-      }
+  function decrementTimer() {
+    if (minutes === 0 && seconds === 1) {
+      setSeconds(seconds - 1);
+      return setTimerState(false);
     }
 
-    return () => clearInterval(interval);
-  }, [minutes, seconds, timerStarted]);
+    if (seconds === 0) {
+      setMinutes(minutes - 1);
+      setSeconds(59);
+    } else {
+      setSeconds(seconds - 1);
+    }
+  }
+
+  function incrementTimer() {
+    if (seconds === 59) {
+      setMinutes(minutes + 1);
+      setSeconds(0);
+    } else {
+      setSeconds(seconds + 1);
+    }
+  }
 
   function startPauseTimer() {
-    setTimerStarted(!timerStarted);
+    setTimerState(!timerStarted);
   }
 
   function resetTimer() {
-    setTimerStarted(false);
+    setTimerState(false);
     setMinutes(defaultMinutes);
     setSeconds(defaultSeconds);
   }

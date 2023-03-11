@@ -1,8 +1,8 @@
 import "../Styles/target.css";
 
-function Target() {
+function Target(props) {
   return (
-    <div className="targetContainer">
+    <div className={`targetContainer ${props.disabled ? "disabled" : ""}`}>
       <div className="targetCircle white">
         <div className="targetCircle black">
           <div className="targetCircle blue">
