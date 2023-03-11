@@ -60,6 +60,10 @@ function Timer(props) {
   }
 
   function startPauseTimer() {
+    if (minutes === 0 && seconds === 0) {
+      resetTimer();
+    }
+
     setTimerState(!timerStarted);
   }
 
@@ -67,6 +71,7 @@ function Timer(props) {
     setTimerState(false);
     setMinutes(defaultMinutes);
     setSeconds(defaultSeconds);
+    props.setScore(0);
   }
 
   return (

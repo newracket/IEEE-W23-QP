@@ -44,7 +44,7 @@ function Game() {
       setScore(score + targetsKnocked.length);
     }
 
-    setTargetValues(targetsEnabled);
+    setTargetValues(targetsEnabled.slice(0, targets));
   }
 
   function setGameState(gameState) {
@@ -74,6 +74,7 @@ function Game() {
             timedChecked={timedChecked}
             seconds={time}
             setGameState={setGameState}
+            setScore={setScore}
           />
 
           <div className="scoreContainer">
