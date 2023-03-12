@@ -2,8 +2,8 @@ const { WebSocketServer } = require("ws");
 const http = require("http");
 const fs = require("fs");
 
-const GAMEMODE_TXT_PATH = "C:\\Users\\airha\\IEEE-W23-QP\\src\\gamemode.txt";
-const TARGETS_TXT_PATH = "targets.txt";
+const GAMEMODE_TXT_PATH = "C:\\Users\\airha\\OneDrive\\Productivity-Project\\input.txt";
+const TARGETS_TXT_PATH = "C:\\Users\\airha\\OneDrive\\Documents\\Processing\\ProcessingToArduino\\serial_data.txt";
 
 const server = http.createServer();
 const ws = new WebSocketServer({ server });
@@ -50,7 +50,7 @@ function sendEnabledTargets() {
 
 function getEnabledTargets() {
   const data = fs
-    .readFileSync("targets.txt", "utf-8")
+    .readFileSync(TARGETS_TXT_PATH, "utf-8")
     .replaceAll("\r", "")
     .split("\n");
   const targetsEnabled = data.map((e) => e === "1");
